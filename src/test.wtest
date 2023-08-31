@@ -1,0 +1,34 @@
+import remiseras.*
+import clientes.*
+import oficina.*
+
+test "roxana le cobra 180 pesos a ludmila por 10km" {
+	assert.equals(180, roxana.precioViaje(ludmila, 10))
+}
+
+test "gabriela le cobra 216 pesos a ludmila por 10km"{
+	assert.equals(216, gabriela.precioViaje(ludmila, 10))
+}
+
+test "lucia reemplaza a mariela "{
+	lucia.reemplazaA(mariela)
+	assert.equals(180, lucia.precioViaje(ludmila, 10))
+}
+
+test "melina trabaja para ludmila"{
+	melina.trabajaPara(ludmila)
+	assert.equals(15, melina.precioPorKm())
+}
+
+test "lucia reemplaza a mariela y melina trabaja para ludmila"{
+	lucia.reemplazaA(mariela)
+	melina.trabajaPara(ludmila)
+	assert.equals(150, lucia.precioViaje(melina, 10))
+	assert.equals(50, lucia.precioViaje(melina, 1))
+}
+
+test "entre roxana y juana, para un viaje de 10km para ana maría se elige a juana"{
+	oficina.asignarRemiseras(roxana, juana)
+	assert.equals(juana, oficina.remiseraElegidaParaViaje(anaMaria, 10))
+}
+
